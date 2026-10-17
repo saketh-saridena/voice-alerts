@@ -1,0 +1,16 @@
+{
+  "name": "voice-alerts",
+  "version": "1.0.0",
+  "description": "A friendly voice that tells you when your coding agent needs you, and what it needs",
+  "author": {
+    "name": "Saketh Saridena"
+  },
+  "license": "MIT",
+  "keywords": [
+    "voice",
+    "notifications",
+    "hooks",
+    "text-to-speech",
+    "fun"
+  ]
+}

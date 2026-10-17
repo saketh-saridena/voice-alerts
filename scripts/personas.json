@@ -1,0 +1,248 @@
+{
+  "friend": {
+    "voice": "Zira",
+    "rate": 1,
+    "pitch": 0,
+    "neural_voice": "en-US-AvaNeural",
+    "neural_rate": "+0%",
+    "neural_pitch": "+0Hz",
+    "mac_voice": "Samantha",
+    "lines": {
+      "permission": [
+        "Hey! {project} needs your okay to {need}. Got a sec?",
+        "Hey, quick one. {project} wants to {need}. Mind taking a look?",
+        "Psst. {project} is waiting on you. It wants to {need}.",
+        "Hey! {project} needs your okay on something. Got a sec?",
+        "Hey, {project} is stuck until you say yes. No rush. Well, a little rush."
+      ],
+      "question": [
+        "Hey, {project} has a question for you. {need}",
+        "Quick question from {project}. {need}",
+        "Hey, {project} has a question for you."
+      ],
+      "plan": [
+        "Hey, {project} put a plan together. Want to look it over before it starts?"
+      ],
+      "idle": [
+        "Hey, {project} is just hanging out, waiting for you.",
+        "Whenever you're ready, {project} is waiting."
+      ],
+      "done": [
+        "Hey, {project} is all done. Nice work, team.",
+        "Good news, {project} is finished. Want to have a look?",
+        "{project} is done. High five!"
+      ],
+      "nag": [
+        "Hey, me again. {project} still needs your okay to {need}.",
+        "Hey, me again. {project} is still waiting on you."
+      ],
+      "nag2": [
+        "Okay, last nudge, I promise. {project} is still waiting for you.",
+        "Still here! {project} has been waiting a while. Coffee after this?"
+      ],
+      "late": [
+        "And then maybe call it a night?",
+        "It's getting late, by the way. Don't forget to rest."
+      ],
+      "welcome": [
+        "Hi! I'm your voice alerts. I'll speak up whenever your coding agent needs you."
+      ]
+    }
+  },
+  "butler": {
+    "voice": "Mark",
+    "rate": -1,
+    "pitch": -2,
+    "neural_voice": "en-GB-RyanNeural",
+    "neural_rate": "-4%",
+    "neural_pitch": "-2Hz",
+    "mac_voice": "Daniel",
+    "lines": {
+      "permission": [
+        "Pardon the interruption. {project} wishes to {need}, and requires your blessing.",
+        "Excuse me. {project} would like to {need}. I promise it is nothing dangerous. Probably.",
+        "A small matter of paperwork in {project}. It needs your signature to {need}.",
+        "Pardon the interruption. {project} wishes to run a command and requires your blessing.",
+        "A small matter of paperwork in {project}. Your signature is required."
+      ],
+      "question": [
+        "{project} has a question, and it refuses to guess. {need}",
+        "A query from {project}. I took the liberty of not answering it myself. It asks: {need}",
+        "{project} has a question, and it refuses to guess.",
+        "A query from {project}. I took the liberty of not answering it myself."
+      ],
+      "plan": [
+        "{project} has drawn up a plan. Kindly review it before anything is knocked down.",
+        "The plan for {project} is ready for your inspection."
+      ],
+      "idle": [
+        "Still waiting in {project}. I have polished the cursor twice.",
+        "{project} awaits your reply. The tea is getting cold."
+      ],
+      "done": [
+        "{project} is finished. Shall I bring the car around?",
+        "Work in {project} is complete. Everything has been tidied away.",
+        "{project} is done. I would high-five you, but it would be unbecoming."
+      ],
+      "nag": [
+        "Pardon me again. {project} still wishes to {need}. I am beginning to feel ignored.",
+        "Pardon me again. {project} is still waiting. I am beginning to feel ignored.",
+        "A gentle reminder that {project} is still waiting for you."
+      ],
+      "nag2": [
+        "Third time asking about {project}. I have started drafting my resignation.",
+        "{project} has now waited long enough to be considered furniture."
+      ],
+      "late": [
+        "And then, if I may, please go home.",
+        "It is rather late. Perhaps a bed is in order."
+      ],
+      "welcome": [
+        "Good day. I shall announce, discreetly, whenever your coding agent requires you."
+      ]
+    }
+  },
+  "commentator": {
+    "voice": "David",
+    "rate": 2,
+    "pitch": 3,
+    "neural_voice": "en-IN-PrabhatNeural",
+    "neural_rate": "+12%",
+    "neural_pitch": "+4Hz",
+    "mac_voice": "Rishi",
+    "lines": {
+      "permission": [
+        "And {project} has appealed to the umpire! It wants to {need}. Will you raise the finger?",
+        "Big moment in {project}! It wants to {need}, the crowd is on its feet, over to you!",
+        "And {project} has appealed to the umpire! Will you raise the finger and approve?",
+        "{project} wants a quick single. Do you say yes, or send it back?"
+      ],
+      "question": [
+        "Drinks break in {project}. The captain asks: {need}",
+        "{project} has stopped mid-over to ask you a question. Most unusual!",
+        "Drinks break in {project}. The captain needs a word with you."
+      ],
+      "plan": [
+        "{project} has set the field. Have a look at the plan before the first ball."
+      ],
+      "idle": [
+        "Nothing happening in {project}. The bowler is waiting at the top of the run-up.",
+        "Rain delay in {project}. Everyone is looking at the pavilion, waiting for you."
+      ],
+      "done": [
+        "And that is the match! {project} finishes it off in style!",
+        "Six! {project} clears the boundary. Job done!",
+        "{project} is done, and that is a well-deserved half-century."
+      ],
+      "nag": [
+        "Still no decision from the third umpire! {project} still wants to {need}!",
+        "Still no decision from the third umpire on {project}! The crowd grows restless!"
+      ],
+      "nag2": [
+        "We have waited so long in {project}, the crowd has started a Mexican wave.",
+        "{project} has now been waiting longer than a five-day test match."
+      ],
+      "late": [
+        "Bad light is coming. Time to call stumps soon!"
+      ],
+      "welcome": [
+        "And we are live! I'll call it the moment your coding agent needs you!"
+      ]
+    }
+  },
+  "intern": {
+    "voice": "Zira",
+    "rate": 2,
+    "pitch": 2,
+    "neural_voice": "en-US-AvaNeural",
+    "neural_rate": "+6%",
+    "neural_pitch": "+0Hz",
+    "mac_voice": "Karen",
+    "lines": {
+      "permission": [
+        "Um, hi! {project} needs your okay to {need}. I really do not want to get fired.",
+        "Okay, so, {project} wants to {need}, and I am trying very hard not to panic. Can you approve it?",
+        "Quick favor! {project} needs a yes so it can {need}. No pressure. Well, some pressure.",
+        "Um, hi! {project} wants to run something and I really do not want to get fired.",
+        "{project} needs a yes from you. No pressure. Well, some pressure."
+      ],
+      "question": [
+        "{project} has a question for you! It says: {need}",
+        "Okay, {project} is asking: {need}. Honestly, I did not know the answer either.",
+        "{project} has a question and honestly, I did not know the answer either.",
+        "Quick question from {project}! It might be a big one. I cannot tell."
+      ],
+      "plan": [
+        "I made a plan for {project}! It has steps and everything! Please look at it!",
+        "The plan for {project} is ready! I color-coded it. Mentally."
+      ],
+      "idle": [
+        "Hello? {project} is just sitting here. Did I do something wrong?",
+        "{project} is waiting for you and I have refreshed the page eleven times."
+      ],
+      "done": [
+        "{project} is done! I did it! Well, {agent} did it. But I watched!",
+        "Finished in {project}! Can I put this on my performance review?",
+        "{project} is all done! I am telling everyone at lunch."
+      ],
+      "nag": [
+        "Hi again! {project} still needs your okay to {need}. I am not crying, you are crying.",
+        "Hi again! {project} is still waiting. I am not crying, you are crying."
+      ],
+      "nag2": [
+        "Third time asking! {project} still wants to {need}. I am telling HR. Kidding! Please?",
+        "{project} is still waiting and I have started telling my plants about it.",
+        "Third time asking. I am telling HR. Kidding! Please answer {project}."
+      ],
+      "late": [
+        "Also, it is really late. Do we get overtime?"
+      ],
+      "welcome": [
+        "Hi! I'm the new intern! I'll yell whenever your coding agent needs you. Politely!"
+      ]
+    }
+  },
+  "trailer": {
+    "voice": "David",
+    "rate": -2,
+    "pitch": -8,
+    "neural_voice": "en-US-ChristopherNeural",
+    "neural_rate": "-12%",
+    "neural_pitch": "-14Hz",
+    "mac_voice": "Fred",
+    "lines": {
+      "permission": [
+        "In a world where {project} must {need}, only you can say yes.",
+        "This fall, {project} wants to {need}. It needs one thing. Your approval.",
+        "In a world where one command stands between {project} and glory, only you can say yes."
+      ],
+      "question": [
+        "One question. {need}. Only you know the answer.",
+        "One question. One answer. One {project}.",
+        "{project} has a question. And nothing will ever be the same."
+      ],
+      "plan": [
+        "Coming soon to {project}. The plan. Review it, if you dare."
+      ],
+      "idle": [
+        "Somewhere in {project}, a cursor is still blinking. Waiting. For you."
+      ],
+      "done": [
+        "{project}. It is finished. Rated P G, for perfectly good.",
+        "From the team that brought you yesterday's bugs. {project}. Is. Complete."
+      ],
+      "nag": [
+        "Previously, on {project}. You were asked a question. You never answered."
+      ],
+      "nag2": [
+        "{project}, part three. This time, it is personal."
+      ],
+      "late": [
+        "Tonight. Go to sleep."
+      ],
+      "welcome": [
+        "In a world of coding agents, one voice will tell you when they need you."
+      ]
+    }
+  }
+}
