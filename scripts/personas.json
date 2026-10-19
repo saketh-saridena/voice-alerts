@@ -218,7 +218,7 @@
       ],
       "question": [
         "One question. {need}. Only you know the answer.",
-        "One question. One answer. One {project}.",
+        "One question. One answer. One chance for {project}.",
         "{project} has a question. And nothing will ever be the same."
       ],
       "plan": [

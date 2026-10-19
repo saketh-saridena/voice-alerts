@@ -78,6 +78,7 @@ DEFAULTS = {
     "quiet_hours": None,
     "late_after_hour": 20,
     "aliases": {},
+    "name_by": "session",  # session (its title), project (its folder), or both
 }
 
 # SAPI can reach both the classic desktop voices and the newer OneCore ones
@@ -403,6 +404,64 @@ def project_name(cwd, cfg):
     if name.lower() in aliases:
         return aliases[name.lower()]
     return spoken_words(name)
+
+
+# Claude Code saves a session's title in its transcript, again and again as the session
+# goes on, so the newest one sits near the end. Transcripts can be hundreds of megabytes:
+# read the tail only, and a bigger tail if the title isn't there.
+TITLE_MARKERS = (b'"type":"custom-title"', b'"type":"ai-title"', b'"type":"agent-name"')
+TITLE_KEYS = ("customTitle", "aiTitle", "agentName")
+
+
+def session_title(transcript):
+    """The session's title as the app shows it, or '' when there is none."""
+    try:
+        size = os.path.getsize(transcript)
+    except (OSError, TypeError):
+        return ""
+    for span in (64 * 1024, 1024 * 1024, 8 * 1024 * 1024):
+        with open(transcript, "rb") as f:
+            f.seek(max(0, size - span))
+            chunk = f.read()
+        for marker in TITLE_MARKERS:  # the app's own title first, then an AI title, then the first name
+            at = chunk.rfind(marker)
+            if at < 0:
+                continue
+            start, end = chunk.rfind(b"\n", 0, at) + 1, chunk.find(b"\n", at)
+            try:
+                entry = json.loads(chunk[start:end if end >= 0 else len(chunk)])
+            except ValueError:
+                continue  # cut off at the start of the chunk
+            title = next((entry[k] for k in TITLE_KEYS if entry.get(k)), "")
+            if title:
+                return str(title)
+        if span >= size:
+            break
+    return ""
+
+
+def tidy_title(title):
+    """Short enough to say: the first clause of a long title, at most eight words."""
+    title = " ".join(str(title).split()).strip(" .!?;:")
+    title = re.sub(r"^the\s+", "", title, flags=re.I)  # "the The ... session" reads badly
+    words = title.split(" ")
+    if len(words) > 6:
+        title = re.split(r"\s*[,;:(]\s*|\s+[-–—]\s+", title)[0]
+        words = title.split(" ")
+    return " ".join(words[:8])
+
+
+def spoken_name(data, cfg):
+    """Who is asking: the session's title, its project, or both (config: name_by)."""
+    project = project_name(data.get("cwd"), cfg)
+    mode = cfg.get("name_by", "session")
+    title = tidy_title(session_title(data.get("transcript_path"))) if mode != "project" else ""
+    if not title:
+        return project
+    aliases = {k.lower(): v for k, v in cfg["aliases"].items()}
+    title = aliases.get(title.lower(), title)
+    session = f"the {title}" if title.lower().endswith("session") else f"the {title} session"
+    return f"{session} in {project}" if mode == "both" else session
 
 
 def shorten(text, words=22):
@@ -808,7 +867,7 @@ def handle_hook(data):
         if not kind:
             save_session(sid, st)
             return
-        project = project_name(data.get("cwd"), cfg)
+        project = spoken_name(data, cfg)
         need = describe_need(data, kind)
         agent = AGENT_NAMES.get(data.get("_agent", "claude"), "your agent")
         token = uuid.uuid4().hex

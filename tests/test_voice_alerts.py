@@ -138,6 +138,46 @@ class Lines(Base):
         self.assertEqual(self.va.project_name("/r/api/.claude/worktrees/feat-x", self.cfg), "api")
 
 
+class SessionNames(Base):
+    def transcript(self, *entries, filler=0):
+        path = os.path.join(self.home, "t.jsonl")
+        with open(path, "w", encoding="utf-8") as f:
+            for e in entries:
+                f.write(json.dumps(e, separators=(",", ":")) + "\n")
+            for _ in range(filler):  # push the title far back, as in a long session
+                f.write(json.dumps({"type": "assistant", "message": "x" * 1000}) + "\n")
+        return path
+
+    def test_newest_title_wins(self):
+        path = self.transcript({"type": "agent-name", "agentName": "First name"},
+                               {"type": "custom-title", "customTitle": "Old title"},
+                               {"type": "custom-title", "customTitle": "Fix the login bug"})
+        self.assertEqual(self.va.spoken_name({"transcript_path": path, "cwd": "/w/shop"}, self.cfg),
+                         "the Fix the login bug session")
+
+    def test_title_far_back_is_still_found(self):
+        path = self.transcript({"type": "custom-title", "customTitle": "Deploy prep"}, filler=1200)
+        self.assertEqual(self.va.session_title(path), "Deploy prep")
+
+    def test_quoted_title_text_in_messages_is_ignored(self):
+        path = self.transcript({"type": "custom-title", "customTitle": "Real title"},
+                               {"type": "user", "message": '{"type":"custom-title","customTitle":"Fake"}'})
+        self.assertEqual(self.va.session_title(path), "Real title")
+
+    def test_modes_and_fallback(self):
+        path = self.transcript({"type": "custom-title", "customTitle": "Release notes"})
+        data = {"transcript_path": path, "cwd": "/w/shop"}
+        self.assertEqual(self.va.spoken_name(data, {**self.cfg, "name_by": "project"}), "shop")
+        self.assertEqual(self.va.spoken_name(data, {**self.cfg, "name_by": "both"}), "the Release notes session in shop")
+        self.assertEqual(self.va.spoken_name({"cwd": "/w/shop"}, self.cfg), "shop")  # no transcript
+
+    def test_long_titles_are_trimmed(self):
+        self.assertEqual(self.va.tidy_title("Fix ATLAS planner, long publish and wide-table joins"), "Fix ATLAS planner")
+        self.assertEqual(self.va.tidy_title("The ATLAS rename."), "ATLAS rename")
+        self.assertEqual(self.va.tidy_title("ATLAS publishes curated Genie views and definitions"),
+                         "ATLAS publishes curated Genie views and definitions")
+
+
 class Installers(Base):
     def read(self, *parts):
         with open(os.path.join(self.home, *parts), encoding="utf-8") as f:

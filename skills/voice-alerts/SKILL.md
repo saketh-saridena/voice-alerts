@@ -56,6 +56,7 @@ They live in `~/.voice-alerts/config.json` (shared by every coding agent), or `$
 - `remind_after_minutes`: when to nag about an unanswered prompt (default `[3, 10]`; `[]` turns reminders off)
 - `skip_during_calls`: stay quiet while any app uses the microphone (Windows; default `true`)
 - `ignore_mic_apps`: app names to leave out of that check
-- `aliases`: `{"long-folder-name": "short spoken name"}`
+- `name_by`: `session` (default) says the session's title, `project` the folder name, `both` both
+- `aliases`: `{"long-folder-name or session title": "short spoken name"}`
 
 To change the wording, copy the plugin's `scripts/personas.json` to `personas.json` in that same folder and edit the copy. `{project}`, `{need}` and `{agent}` are filled in when it speaks.

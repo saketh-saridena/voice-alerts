@@ -6,13 +6,13 @@ It works with Claude Code, OpenAI Codex CLI, Gemini CLI, GitHub Copilot CLI, Cur
 
 Run a few agents at once, switch to another window, and you will hear things like:
 
-> "Hey! **checkout-service** needs your okay to **run the test suite**. Got a sec?"
+> "Hey! **The login fix session** needs your okay to **run the test suite**. Got a sec?"
 >
-> "Quick question from **docs-site**. **Which deploy target should I use?**"
+> "Quick question from **the docs refresh session**. **Which deploy target should I use?**"
 >
-> "Good news, **data-pipeline** is finished. Want to have a look?"
+> "Good news, **the data pipeline session** is finished. Want to have a look?"
 
-It says which project is asking, so you know where to go without looking.
+It says which session is asking, by the title you see in the app, so you know where to go without looking. Agents without session titles get the project folder's name instead.
 
 ## What it announces
 
@@ -120,9 +120,17 @@ One settings folder serves every agent: `~/.voice-alerts/config.json`, or `$VOIC
   "done_after_seconds": 180,
   "remind_after_minutes": [3, 10],
   "skip_during_calls": true,
+  "name_by": "session",
   "aliases": { "my-very-long-repo-name": "the API" }
 }
 ```
+
+`name_by` picks the name it says:
+- `session` (default): the session's title in Claude Code, such as "the Fix login bug session". Long titles are shortened to their first part.
+- `project`: the project folder's name.
+- `both`: "the Fix login bug session in checkout-service".
+
+Other agents always use the project name, since their sessions have no titles it can read.
 
 To change what it says, copy `scripts/personas.json` to `~/.voice-alerts/personas.json` and edit the copy. `{project}`, `{need}` and `{agent}` are filled in when it speaks.
 
