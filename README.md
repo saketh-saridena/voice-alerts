@@ -1,8 +1,6 @@
 <div align="center">
 
-# 🔊 voice-alerts
-
-**A friendly voice that tells you when your coding agent needs you, and what it needs.**
+<img src="assets/banner.svg" width="100%" alt="voice-alerts: a friendly voice that tells you when your coding agent needs you">
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-3776AB.svg)
@@ -17,11 +15,11 @@ Claude Code · OpenAI Codex CLI · Gemini CLI · GitHub Copilot CLI · Cursor ·
 
 Run a few agents at once, switch to another window, and stop checking on them. When one needs you, you hear it:
 
-> 🗣️ *"Hey! **The login fix session** needs your okay to **run the test suite**. Got a sec?"*
+> *"Hey! **The login fix session** needs your okay to **run the test suite**. Got a sec?"*
 >
-> 🗣️ *"Quick question from **the docs refresh session**. **Which deploy target should I use?**"*
+> *"Quick question from **the docs refresh session**. **Which deploy target should I use?**"*
 >
-> 🗣️ *"Good news, **the data pipeline session** is finished. Want to have a look?"*
+> *"Good news, **the data pipeline session** is finished. Want to have a look?"*
 
 It names the session by the title you see in the app, says what it's waiting for, and stays quiet the rest of the time.
 
@@ -47,13 +45,13 @@ Swap `codex` for your agent, list several, or use `all` for every agent found on
 
 ## What you'll hear
 
-| When | It says |
-| --- | --- |
-| 🔐 The agent needs permission | what for: *"…needs your okay to install package dependencies"*, *"…to edit settings.json"*, *"…to open a page on github.com"* |
-| ❓ The agent asks you something | the question itself, read out |
-| 📋 A plan is ready | that it's ready for your review |
-| ✅ A long job finished | *"done"*, but only for turns over 3 minutes; quick replies stay quiet |
-| ⏰ You haven't answered | a nudge after 3 minutes, a more dramatic one after 10, and nothing once you've responded |
+| | When | It says |
+| :---: | --- | --- |
+| <img src="assets/icons/permission.svg" width="20" height="20" alt=""> | The agent needs permission | what for: *"…needs your okay to install package dependencies"*, *"…to edit settings.json"*, *"…to open a page on github.com"* |
+| <img src="assets/icons/question.svg" width="20" height="20" alt=""> | The agent asks you something | the question itself, read out |
+| <img src="assets/icons/plan.svg" width="20" height="20" alt=""> | A plan is ready | that it's ready for your review |
+| <img src="assets/icons/done.svg" width="20" height="20" alt=""> | A long job finished | *"done"*, but only for turns over 3 minutes; quick replies stay quiet |
+| <img src="assets/icons/reminder.svg" width="20" height="20" alt=""> | You haven't answered | a nudge after 3 minutes, a more dramatic one after 10, and nothing once you've responded |
 
 **It's polite about it:**
 - **Calls:** on Windows it holds back while any app is using your microphone (Teams, Zoom, Meet) and nudges you afterwards.
@@ -64,13 +62,13 @@ Swap `codex` for your agent, list several, or use `all` for every agent found on
 
 | Agent | Permission | Questions | Plans | Done | Reminders |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| **Claude Code** (plugin) | ✅ with detail | ✅ | ✅ | ✅ | ✅ |
-| **OpenAI Codex CLI** 0.124+ | ✅ with detail | ✅ | | ✅ | ✅ |
-| **Gemini CLI** 0.26+ | ✅ with detail | ✅ | ✅ | ✅ | ✅ |
-| **GitHub Copilot CLI** 1.0.18+ | ✅ general | ✅ | | ✅ | |
-| **Cursor** 1.7+ | | | | ✅ | |
-| **OpenCode** 1.x | ✅ with detail | ✅ | ✅ | ✅ | |
-| **Aider** 0.76+ | | | | ✅ after every reply | |
+| **Claude Code** (plugin) | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> with detail | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> |
+| **OpenAI Codex CLI** 0.124+ | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> with detail | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> | | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> |
+| **Gemini CLI** 0.26+ | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> with detail | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> |
+| **GitHub Copilot CLI** 1.0.18+ | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> general | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> | | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> | |
+| **Cursor** 1.7+ | | | | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> | |
+| **OpenCode** 1.x | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> with detail | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> | |
+| **Aider** 0.76+ | | | | <img src="assets/icons/check.svg" width="16" height="16" alt="yes"> after every reply | |
 
 **About the gaps:** the empty cells are events that agent doesn't report. For example, Cursor has no "waiting for your approval" hook, and Copilot doesn't say which tool is asking. Reminders need a transcript file to tell when you've answered, so they only run where the agent provides one. Session titles come from Claude Code; other agents are named by their project folder.
 
@@ -83,12 +81,12 @@ Swap `codex` for your agent, list several, or use `all` for every agent found on
 Pick one in `setup`, or list several to rotate between them.
 
 | | Character | Sounds like |
-| --- | --- | --- |
-| 🙂 | `friend` (default) | *"Hey, quick one. The API session wants to edit config.yaml. Mind taking a look?"* |
-| 🎩 | `butler` | *"Pardon the interruption. The API session wishes to edit config.yaml, and requires your blessing."* |
-| 🏏 | `commentator` | *"And the API session has appealed to the umpire! It wants to edit config.yaml. Will you raise the finger?"* |
-| 😰 | `intern` | *"Um, hi! The API session needs your okay to edit config.yaml. I really do not want to get fired."* |
-| 🎬 | `trailer` | *"In a world where the API session must edit config.yaml, only you can say yes."* |
+| :---: | --- | --- |
+| <img src="assets/icons/friend.svg" width="20" height="20" alt=""> | `friend` (default) | *"Hey, quick one. The API session wants to edit config.yaml. Mind taking a look?"* |
+| <img src="assets/icons/butler.svg" width="20" height="20" alt=""> | `butler` | *"Pardon the interruption. The API session wishes to edit config.yaml, and requires your blessing."* |
+| <img src="assets/icons/commentator.svg" width="20" height="20" alt=""> | `commentator` | *"And the API session has appealed to the umpire! It wants to edit config.yaml. Will you raise the finger?"* |
+| <img src="assets/icons/intern.svg" width="20" height="20" alt=""> | `intern` | *"Um, hi! The API session needs your okay to edit config.yaml. I really do not want to get fired."* |
+| <img src="assets/icons/trailer.svg" width="20" height="20" alt=""> | `trailer` | *"In a world where the API session must edit config.yaml, only you can say yes."* |
 
 ## Voices
 
